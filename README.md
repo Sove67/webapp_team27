@@ -5,6 +5,7 @@
 
 ## Contributors
 * Kaleb Afseth - index.html
+* Faiz Hassany - solutions.html
 
 ## General Info
 This browser based web application connects business owners with solutions to COVID-19 problems.
