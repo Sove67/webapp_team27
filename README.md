@@ -1,12 +1,10 @@
 ## COVID-19 Soltions
-
-## Contributors
-* Kaleb Afseth - index.html
-
-
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
+
+## Contributors
+* Kaleb Afseth - index.html
 
 ## General Info
 This browser based web application connects business owners with solutions to COVID-19 problems.
