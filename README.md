@@ -5,7 +5,11 @@
 
 ## Contributors
 * Kaleb Afseth - index.html
+<<<<<<< HEAD
 * Steven Gellert - post.html
+=======
+* Faiz Hassany - solutions.html
+>>>>>>> b33452521111602f2e9a0c36a8e4bfc3c0a564d4
 
 ## General Info
 This browser based web application connects business owners with solutions to COVID-19 problems.
