@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Post List</title>
+    <meta name="comp1800 boilerplate code" content="post">
+    <meta name="author" content="BCIT">
+
+    <!-- Bootstrap for Mobile-first, and JQuery -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .card {
+            display: grid;
+            grid-template-columns: 10% 1fr 40%;
+            margin-bottom: 10px;
+        }
+
+        .ratingContainer {
+            margin: auto;
+        }
+
+        nav-item {
+            list-style: none;
+        }
+
+        .navbar-toggler-icon {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .navbar-toggler {
+            margin-right: 25px;
+        }
+
+        .navbar-brand {
+            padding-right: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            aria-controls="navbarDropdown links2">
+            <span class="navbar-toggler-icon"></span>
+            <div class="collapse navbar-collapse show" id="currentPage">Post List</div>
+        </button>
+        <span class="navbar-brand mr-auto" href="">COVID Solutions</span>
+
+        <div class="collapse navbar-collapse" id="navbarDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="nav-link">Home</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="solutions.html">Solutions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="request.html">New Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="problems.html">Problems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">My Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="cardHolder">
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        /*<![CDATA[*/
+        $(document).ready(function () {
+            //Fetch posts
+            //for each post create a card containing title, author, tags, description, rating
+            /**/
+            let postList = [];
+            let placeholderPost1 = [
+                1, //Rating
+                "title1",
+                "description1",
+                "author1",
+                "tag1",
+                "/post.html" //Link
+            ]
+            let placeholderPost2 = [
+                3, //Rating
+                "title2",
+                "description2 is longer than the other descriptions to test wrapping text.",
+                "author2",
+                "tag2,tag3",
+                "/post.html" //Link
+            ]
+            let placeholderPost3 = [
+
+                4, //Rating
+                "title3",
+                "description3",
+                "author3",
+                "tag4IsLonger,tag5,tag6,tag7,tag8,tag9",
+                "/post.html" //Link
+            ]
+            postList.push(placeholderPost1);
+            postList.push(placeholderPost2);
+            postList.push(placeholderPost3);
+
+            postList.forEach(function (item) {
+                $.get("/postListCard.html", function (postHTML) {
+                    $("#cardHolder").append(postHTML);
+                }).then(function () {
+                    let card = $(".card:last-of-type");
+                    card.find(".rating").text(item[0]);
+                    card.find(".title").text(item[1]);
+                    card.find(".description").text(item[2]);
+                    card.find(".author").text(item[3]);
+                    let tagList = item[4].split(",");
+                    tagList.forEach(function (tagText) {
+                        let newTag = "<span class=\"badge badge-dark\">" + tagText +
+                            "</span>";
+                        card.find(".tagList").append(newTag)
+                    });
+                    card.find(".view").attr("href", item[5]);
+                })
+            });
+        });
+        /*]]>*/
+    </script>
+</body>
+
+</html>
