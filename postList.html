@@ -83,61 +83,77 @@
 
     <div id="cardHolder">
     </div>
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related    -->
+    <!----------------------------------------------->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+     <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDsVDQCk4K0bcGfxJYBOf1XjPLXFIanzO0",
+            authDomain: "team27webapp.firebaseapp.com",
+            databaseURL: "https://team27webapp.firebaseio.com",
+            projectId: "team27webapp",
+            storageBucket: "team27webapp.appspot.com",
+            messagingSenderId: "886704820434",
+            appId: "1:886704820434:web:6a69c373197e383b6d5d0b"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
     <script>
         /*<![CDATA[*/
         $(document).ready(function () {
-            //Fetch posts
-            //for each post create a card containing title, author, tags, description, rating
-            /**/
-            let postList = [];
-            let placeholderPost1 = [
-                1, //Rating
-                "title1",
-                "description1",
-                "author1",
-                "tag1",
-                "/post.html" //Link
-            ]
-            let placeholderPost2 = [
-                3, //Rating
-                "title2",
-                "description2 is longer than the other descriptions to test wrapping text.",
-                "author2",
-                "tag2,tag3",
-                "/post.html" //Link
-            ]
-            let placeholderPost3 = [
-
-                4, //Rating
-                "title3",
-                "description3",
-                "author3",
-                "tag4IsLonger,tag5,tag6,tag7,tag8,tag9",
-                "/post.html" //Link
-            ]
-            postList.push(placeholderPost1);
-            postList.push(placeholderPost2);
-            postList.push(placeholderPost3);
-
-            postList.forEach(function (item) {
-                $.get("/postListCard.html", function (postHTML) {
-                    $("#cardHolder").append(postHTML);
-                }).then(function () {
-                    let card = $(".card:last-of-type");
-                    card.find(".rating").text(item[0]);
-                    card.find(".title").text(item[1]);
-                    card.find(".description").text(item[2]);
-                    card.find(".author").text(item[3]);
-                    let tagList = item[4].split(",");
-                    tagList.forEach(function (tagText) {
-                        let newTag = "<span class=\"badge badge-dark\">" + tagText +
-                            "</span>";
-                        card.find(".tagList").append(newTag)
+            db.collection("posts")
+                .get()
+                .then(function (querySnapshot) {
+                    let postList = [];
+                    querySnapshot.forEach(function (post) {
+                        postList.push(post.data());
                     });
-                    card.find(".view").attr("href", item[5]);
+                    postList.forEach(function (item) {
+                        console.log(item);
+                        jQuery.get("/postListCard.html", function (postHTML) {
+                            jQuery("#cardHolder").append(postHTML);
+                        }).then(function () {
+                            let card = jQuery(".card:last-of-type");
+                            card.find(".rating").text(item.rating);
+                            card.find(".title").text(item.title);
+                            card.find(".content").text(item.content);
+                            card.find(".author").text(item.author);
+                            let tagList = item.tagList.split(",");
+                            tagList.forEach(function (tagText) {
+                                let newTag = "<span class=\"badge badge-dark\">" +
+                                    tagText +
+                                    "</span>";
+                                card.find(".tagList").append(newTag)
+                            });
+                            card.find(".view").attr("href", item.link);
+                        })
+                    });
                 })
-            });
+                .catch(function (error) {
+                    console.log("Error getting documents: ", error);
+                });
         });
         /*]]>*/
     </script>
