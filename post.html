@@ -105,7 +105,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand">Post Title</a>
+        <a class="navbar-brand post-title">Post Title</a>
         <!--
         <span class="navbar-text">
             Post Title
@@ -130,7 +130,7 @@
 
       <!--Post Body-->
       <div class="card">
-        <div class="card-body">
+        <div class="card-body post-content">
           Post Content
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus suscipit iaculis ultrices. Ut sed dolor
@@ -217,10 +217,43 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
       </script>
 
+      <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyDsVDQCk4K0bcGfxJYBOf1XjPLXFIanzO0",
+          authDomain: "team27webapp.firebaseapp.com",
+          databaseURL: "https://team27webapp.firebaseio.com",
+          projectId: "team27webapp",
+          storageBucket: "team27webapp.appspot.com",
+          messagingSenderId: "886704820434",
+          appId: "1:886704820434:web:6a69c373197e383b6d5d0b"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+      </script>
       <!--------------------------------------------------------------------->
       <!-- JS files: Your own JavaScript functions included here    -->
       <!--------------------------------------------------------------------->
-    
+    <script>
+      $(document).ready(function () {
+        var queryString = decodeURIComponent(window.location.search);
+        var queries = queryString.split("?");   //delimiter
+        var postID = queries[1];
+        console.log(postID);
+        db.collection("posts").doc(postID)
+            .get()
+            .then(function(querySnapshot){
+          
+
+        })
+      
+      });
+
+    </script>
 
 </body>
 

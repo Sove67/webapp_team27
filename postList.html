@@ -130,6 +130,7 @@
                             jQuery("#cardHolder").append(postHTML);
                         }).then(function () {
                             let card = jQuery(".card:last-of-type");
+                            card.find(".view").prop("href", "post.html?" + item.link);
                             card.find(".rating").text(item.rating);
                             card.find(".title").text(item.title);
                             card.find(".content").text(item.content);
@@ -141,7 +142,9 @@
                                     "</span>";
                                 card.find(".tagList").append(newTag)
                             });
-                            card.find(".view").attr("href", item.link);
+                            //card.find(".view").attr("href", item.link);
+                            
+
                         })
                     });
                 })
