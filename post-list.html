@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Index</title>
-    <meta name="comp1800 boilerplate code" content="COVID Solutions">
+    <title>Post List</title>
+    <meta name="comp1800 boilerplate code" content="post">
     <meta name="author" content="BCIT">
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
@@ -13,21 +13,44 @@
     <link rel="stylesheet" href="styles/bootstrap.css">
 
     <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        .card {
+            display: grid;
+            grid-template-columns: 10% 1fr 40%;
+            margin-bottom: 10px;
+        }
+
+        .ratingContainer {
+            margin: auto;
+        }
+
+        nav-item {
+            list-style: none;
+        }
+
+        .navbar-toggler-icon {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .navbar-toggler {
+            margin-right: 25px;
+        }
+
+        .navbar-brand {
+            padding-right: 25px;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-------------------------------------->
-    <!-- The following is HTML for layout -->
-    <!-------------------------------------->
-
     <div id="navbarContainer">
     </div>
 
-    <h1>This is the landing page.</h1>
-    <p>This is where users will first visit, when they do not have an account. It should have an introduction, a sign up
-        prompt, and a service preview.</p>
+    <div id="cardContainer">
+    </div>
 
     <!----------------------------------------------->
     <!--    JS: Boostrap, Firebase, API related    -->
@@ -69,6 +92,7 @@
     <!--      JS files: Your own JavaScript functions included here      -->
     <!--------------------------------------------------------------------->
     <script src="scripts/attach-templates.js"></script>
+    <script src="scripts/attach-posts.js"></script>
 </body>
 
 </html>
