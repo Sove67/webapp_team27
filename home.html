@@ -3,19 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Home | COVID Solutions</title>
+    <title>Home</title>
     <meta name="comp1800 boilerplate code" content="COVID Solutions">
     <meta name="author" content="Kaleb Afseth">
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
 
     <!-- Optional styles and scripts of your own -->
     <style>
         nav-item {
             list-style: none;
         }
+
         .navbar-toggler-icon {
             padding-left: 30px;
             padding-right: 30px;
@@ -35,6 +37,7 @@
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
+<<<<<<< HEAD
     <!-- Header Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarDropdown links2">
@@ -69,14 +72,19 @@
             <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit"><a href="postList.html">Search</a></button>
           </form>
     </nav>
+=======
+
+    <div id="navbarContainer">
+    </div>
+>>>>>>> 9f203e05fea5b5a53f7134a1b385c74e6d044bf2
 
     <div id="intro" class="jumbotron multi-collapse show">
         <h1 class="display-4">Welcome to the COVID Solutions web-app!</h1>
         <p class="lead">Here at the home page, you can navigate to one of the main sections of our site.</p>
         <hr class="my-4">
         <p>We wish you the best of luck, and would like to thank you for staying safe during COVID-19.</p>
-        <a class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target=".multi-collapse"
-           href="" aria-expanded="false" aria-controls="links1 links2">Get Started</a>
+        <a class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target=".multi-collapse" href=""
+            aria-expanded="false" aria-controls="links1 links2">Get Started</a>
     </div>
 
     <div class="collapse multi-collapse" id="links1">
@@ -99,11 +107,10 @@
     </div>
 
     <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related    -->
+    <!--    JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
@@ -111,10 +118,34 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
-    <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
-    <!--------------------------------------------------------------------->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
 
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDsVDQCk4K0bcGfxJYBOf1XjPLXFIanzO0",
+            authDomain: "team27webapp.firebaseapp.com",
+            databaseURL: "https://team27webapp.firebaseio.com",
+            projectId: "team27webapp",
+            storageBucket: "team27webapp.appspot.com",
+            messagingSenderId: "886704820434",
+            appId: "1:886704820434:web:6a69c373197e383b6d5d0b"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
+    <!--------------------------------------------------------------------->
+    <!--      JS files: Your own JavaScript functions included here      -->
+    <!--------------------------------------------------------------------->
+    <script src="scripts/attach-templates.js"></script>
 </body>
 
 </html>

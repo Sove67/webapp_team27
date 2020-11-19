@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Create a Post</title>
+  <meta name="comp1800 boilerplate code" content="COVID Solutions">
+  <meta name="author" content="Steven Gellert">
+
+  <!-- Bootstrap for Mobile-first, and JQuery -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <style>
+    #forms {
+      margin: 15px;
+    }
+
+    .btn {
+      margin-left: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-------------------------------------->
+  <!-- The following is HTML for layout -->
+  <!-------------------------------------->
+
+  <div id="navbarContainer">
+  </div>
+
+
+  <form id="forms">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault01">
+          <h3>Title</h3>
+        </label>
+        <input type="text" class="form-control" id="validationDefault01" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault02">
+          <h3>Post</h3>
+        </label>
+        <textarea class="form-control" id="validationDefault02" rows="6" required></textarea>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit Post</button>
+  </form>
+
+  <!----------------------------------------------->
+  <!--    JS: Boostrap, Firebase, API related    -->
+  <!----------------------------------------------->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDsVDQCk4K0bcGfxJYBOf1XjPLXFIanzO0",
+      authDomain: "team27webapp.firebaseapp.com",
+      databaseURL: "https://team27webapp.firebaseio.com",
+      projectId: "team27webapp",
+      storageBucket: "team27webapp.appspot.com",
+      messagingSenderId: "886704820434",
+      appId: "1:886704820434:web:6a69c373197e383b6d5d0b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+
+  <!--------------------------------------------------------------------->
+  <!--      JS files: Your own JavaScript functions included here      -->
+  <!--------------------------------------------------------------------->
+  <script src="scripts/attach-templates.js"></script>
+  <script src="scripts/create-post.js"></script>
+</body>

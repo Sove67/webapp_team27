@@ -2,64 +2,65 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Post</title>
-    <meta name="comp1800 boilerplate code" content="COVID Solutions">
-    <meta name="author" content="Steven Gellert">
+  <meta charset="utf-8">
+  <title>Post</title>
+  <meta name="comp1800 boilerplate code" content="COVID Solutions">
+  <meta name="author" content="Steven Gellert">
 
-    <!-- Bootstrap for Mobile-first, and JQuery -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Bootstrap for Mobile-first, and JQuery -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/bootstrap.css">
 
-    <!-- Optional styles and scripts of your own -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Optional styles and scripts of your own -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-      nav-item {
-          list-style: none;
-      }
-      .navbar-toggler-icon {
-          padding-left: 30px;
-          padding-right: 30px;
-      }
+  <style>
+    nav-item {
+      list-style: none;
+    }
 
-      .navbar-toggler {
-          margin-right: 25px;
-      }
+    .navbar-toggler-icon {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
 
-      .navbar-brand {
-          padding-right: 25px;
-      }
-      
-      .comment-header{
-        margin-top: 15px;
-        display:flex;
-        justify-content: space-between;
-      }
+    .navbar-toggler {
+      margin-right: 25px;
+    }
 
-      .comment{
-        margin:15px;
-        margin-bottom: 0px;
-      }
+    .navbar-brand {
+      padding-right: 25px;
+    }
 
-      .add-comment{
-        display: flex;
-        margin:15px;
-        margin-bottom: 15px;
-        justify-content: center;
-      }
+    .comment-header {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-      .add-comment-field{
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-    </style>
+    .comment {
+      margin: 15px;
+      margin-bottom: 0px;
+    }
 
+    .add-comment {
+      display: flex;
+      margin: 15px;
+      margin-bottom: 15px;
+      justify-content: center;
+    }
 
+    .add-comment-field {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  </style>
 </head>
 
 <body>
 
+<<<<<<< HEAD
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
@@ -98,24 +99,106 @@
         <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit"><a href="postList.html">Search</a></button>
       </form>
     </nav>
+=======
+  <!-------------------------------------->
+  <!-- The following is HTML for layout -->
+  <!-------------------------------------->
+>>>>>>> 9f203e05fea5b5a53f7134a1b385c74e6d044bf2
 
-    <!--Post Header-->
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand">Post Title</a>
-        <!--
+  <div id="navbarContainer">
+  </div>
+
+
+  <!--Post Header-->
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h1 class="post-title">Post Title</h1>
+    <!--
         <span class="navbar-text">
             Post Title
         </span>
         -->
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <!--Add link to post author profile-->
+          <a class="nav-link h2" href="#">By: Post Author</a>
+        </li>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-outline-primary">
+      <i class="fa fa-arrow-up"></i>
+    </button>
+    <div class="w-5 p-3">0</div>
+    <button type="button" class="btn btn-outline-primary">
+      <i class="fa fa-arrow-down"></i>
+    </button>
+  </nav>
+
+  <!--Post Body-->
+  <div class="card">
+    <div class="card-body post-content">
+      Post Content
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus suscipit iaculis ultrices. Ut sed dolor
+        mattis, mattis ante ut, ultricies nunc. Duis et nisi libero. Integer semper lorem eget tristique
+        consectetur. Vivamus varius magna dolor, nec lacinia magna vulputate in. Aliquam tincidunt massa purus. Cras
+        vitae enim lorem. Ut mollis urna a dolor lacinia, non ultricies tortor faucibus. Vestibulum pharetra orci
+        lacus, eget tempus lectus venenatis quis. Nam hendrerit ante vel tellus iaculis, ac pharetra sem posuere.
+        Suspendisse fermentum finibus nunc in ultricies. Quisque eu venenatis massa. Nam ultrices viverra lacinia.
+      </p>
+    </div>
+    
+    <!--Comment Header-->
+    <div class="card-header comment-header">
+      <h5>Comments</h5>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Sort By
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Rating</a>
+          <a class="dropdown-item" href="#">Newest</a>
+          <a class="dropdown-item" href="#">Oldest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Post Comment-->
+  <p class="add-comment">
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+      aria-controls="collapseExample">
+      Post a Comment
+    </a>
+  </p>
+  <div class="collapse add-comment-field" id="collapseExample">
+    <form>
+      <div class="form-group">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+  </div>
+
+  <!--Comment Body-->
+  <div class="card comment">
+    <div class="card-header">
+      <nav class="navbar navbar-expand navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <!--Add link to post author profile-->
-              <a class="nav-link" href="#">By: Post Author</a>
+              <!--Add link to comment author profile-->
+              <a class="nav-link" href="#">Comment Author</a>
             </li>
           </ul>
         </div>
@@ -127,100 +210,65 @@
           <i class="fa fa-arrow-down"></i>
         </button>
       </nav>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Comment content</p>
+    </div>
+  </div>
 
-      <!--Post Body-->
-      <div class="card">
-        <div class="card-body">
-          Post Content
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus suscipit iaculis ultrices. Ut sed dolor
-            mattis, mattis ante ut, ultricies nunc. Duis et nisi libero. Integer semper lorem eget tristique
-            consectetur. Vivamus varius magna dolor, nec lacinia magna vulputate in. Aliquam tincidunt massa purus. Cras
-            vitae enim lorem. Ut mollis urna a dolor lacinia, non ultricies tortor faucibus. Vestibulum pharetra orci
-            lacus, eget tempus lectus venenatis quis. Nam hendrerit ante vel tellus iaculis, ac pharetra sem posuere.
-            Suspendisse fermentum finibus nunc in ultricies. Quisque eu venenatis massa. Nam ultrices viverra lacinia.
-          </p>
-        </div>
-        <!--Comment Header-->
-        <div class="card-header comment-header">
-          <h5>Comments</h5>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Sort By
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Rating</a>
-              <a class="dropdown-item" href="#">Newest</a>
-              <a class="dropdown-item" href="#">Oldest</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!----------------------------------------------->
+  <!--    JS: Boostrap, Firebase, API related    -->
+  <!----------------------------------------------->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-      <!--Post Comment-->
-      <p class="add-comment">
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Post a Comment
-        </a>
-      </p>
-      <div class="collapse add-comment-field" id="collapseExample">
-        <form>
-          <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Post</button>
-        </form>
-      </div>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
 
-      <!--Comment Body-->
-      <div class="card comment">
-        <div class="card-header">
-          <nav class="navbar navbar-expand navbar-light bg-light">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>         
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <!--Add link to comment author profile-->
-                  <a class="nav-link" href="#">Comment Author</a>
-                </li>
-              </ul>
-            </div>
-            <button type="button" class="btn btn-outline-primary">
-              <i class="fa fa-arrow-up"></i>
-            </button>
-            <div class="w-5 p-3">0</div>
-            <button type="button" class="btn btn-outline-primary">
-              <i class="fa fa-arrow-down"></i>
-            </button>
-          </nav>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Comment content</p>
-        </div>
-      </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
 
 
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
 
-      <!----------------------------------------------->
-      <!-- JS: Boostrap, Firebase, API related    -->
-      <!----------------------------------------------->
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-      </script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-      </script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-      </script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDsVDQCk4K0bcGfxJYBOf1XjPLXFIanzO0",
+      authDomain: "team27webapp.firebaseapp.com",
+      databaseURL: "https://team27webapp.firebaseio.com",
+      projectId: "team27webapp",
+      storageBucket: "team27webapp.appspot.com",
+      messagingSenderId: "886704820434",
+      appId: "1:886704820434:web:6a69c373197e383b6d5d0b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
 
-      <!--------------------------------------------------------------------->
-      <!-- JS files: Your own JavaScript functions included here    -->
-      <!--------------------------------------------------------------------->
-    
+  <!--------------------------------------------------------------------->
+  <!--      JS files: Your own JavaScript functions included here      -->
+  <!--------------------------------------------------------------------->
+  <script src="scripts/attach-templates.js"></script>
+  <script>
+    $(document).ready(function () {
+      var queryString = decodeURIComponent(window.location.search);
+      var queries = queryString.split("?");   //delimiter
+      var postID = queries[1];
+      console.log(postID);
+      db.collection("posts").doc(postID)
+          .get()
+          .then(function(querySnapshot){
+        
 
+      });
+    });
+
+  </script>
 </body>
-
