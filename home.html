@@ -38,38 +38,7 @@
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarDropdown links2">
-            <span class="navbar-toggler-icon"></span> 
-            <div class="collapse navbar-collapse show" id="currentPage">Home</div>
-        </button>
-        <span class="navbar-brand mr-auto" href="">COVID Solutions</span>
-        
-        <div class="collapse navbar-collapse" id="navbarDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <span class="nav-link">Home</span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="solutions.html">Solutions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="request.html">New Request</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="problems.html">Problems</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.html">My Profile</a>
-                </li>
-            </ul>
-        </div>
-        <form class="form-inline ml-auto">
-            <div class="md-form my-0">
-              <input class="form-control" type="text" placeholder="Find posts" aria-label="Search">
-            </div>
-            <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit"><a href="postList.html">Search</a></button>
-          </form>
+    <nav id="navbarContainer">
     </nav>
 
     <div id="intro" class="jumbotron multi-collapse show">
@@ -77,7 +46,7 @@
         <p class="lead">Here at the home page, you can navigate to one of the main sections of our site.</p>
         <hr class="my-4">
         <p>We wish you the best of luck, and would like to thank you for staying safe during COVID-19.</p>
-        <a class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target=".multi-collapse" href=""
+        <a class="btn btn-primary btn-lg accountRequired" type="button" data-toggle="collapse" data-target=".multi-collapse" href=""
             aria-expanded="false" aria-controls="links1 links2">Get Started</a>
     </div>
 
@@ -86,17 +55,12 @@
             <h1 class="display-4">Solutions</h1>
             <p class="lead">Look through solutions that other users have posted, both in response to requests, and on
                 their own accord.</p>
-            <a class="btn btn-primary btn-lg" href="solutions.html" role="button">Browse Solutions</a>
-        </div>
-        <div class="jumbotron">
-            <h1 class="display-4">Requests</h1>
-            <p class="lead">Create a post asking other users for their help with your problem</p>
-            <a class="btn btn-primary btn-lg" href="request.html" role="button">Create A Request</a>
+            <a class="btn btn-primary btn-lg" href="post-list.html?solutions" role="button">Browse Solutions</a>
         </div>
         <div class="jumbotron">
             <h1 class="display-4">Problems</h1>
             <p class="lead">Solve problems that other users have posted</p>
-            <a class="btn btn-primary btn-lg" href="problems.html" role="button">Browse Problems</a>
+            <a class="btn btn-primary btn-lg" href="post-list.html?problems" role="button">Browse Problems</a>
         </div>
     </div>
 
@@ -119,6 +83,8 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
 
     <script>
         // Your web app's Firebase configuration
@@ -140,6 +106,7 @@
     <!--      JS files: Your own JavaScript functions included here      -->
     <!--------------------------------------------------------------------->
     <script src="scripts/attach-templates.js"></script>
+    <script src="scripts/loginTrigger.js"></script>
 </body>
 
 </html>

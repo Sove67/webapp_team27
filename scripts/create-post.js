@@ -29,8 +29,8 @@ function addListener() {
                 db.collection("posts").doc(docRef.id).set({
                     "link": docRef.id
                 }, {merge: true});
+                window.location.href = "/post.html?"+docRef.id;
             });
-            
     })
 }
 addListener();

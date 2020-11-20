@@ -65,5 +65,6 @@ $(document).ready(function () {
         "comment": comment,
         "rating": 0
       });
+      location.reload(); 
     });
   });
