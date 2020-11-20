@@ -24,6 +24,12 @@ function addListener() {
                 "title": title,
                 "rating": 0,
             })
+            .then(function(docRef){
+                console.log("ID: " + docRef.id)
+                db.collection("posts").doc(docRef.id).set({
+                    "link": docRef.id
+                }, {merge: true});
+            });
             
     })
 }
