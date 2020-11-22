@@ -6,22 +6,18 @@ function addListener() {
         e.preventDefault();
 
         // grab what user typed
+        var postType = $('#postType input:radio:checked').attr("id");
         var title = document.getElementById("validationDefault01").value;
-        var post = document.getElementById("validationDefault02").value;
-
-        // get pointers to the checkboxes
-        
-
-        console.log(title);
-        console.log(post);
+        var description = document.getElementById("validationDefault02").value;
         
 
         // write the values into new database document
         
         db.collection("posts")
             .add({ //using the add() function, auto-generated doc ID
-                "post": post,
+                "type": postType,
                 "title": title,
+                "description": description,
                 "rating": 0,
             })
             .then(function(docRef){

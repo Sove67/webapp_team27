@@ -35,6 +35,18 @@
   <form id="forms">
     <div class="form-row">
       <div class="col-md-6 mb-3">
+        <div id="postType" class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="problem" autocomplete="off" checked> Problem
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="solution" autocomplete="off"> Solution
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
         <label for="validationDefault01">
           <h3>Title</h3>
         </label>
@@ -71,6 +83,8 @@
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
 
   <script>
     // Your web app's Firebase configuration
@@ -87,10 +101,18 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
   </script>
-
   <!--------------------------------------------------------------------->
   <!--      JS files: Your own JavaScript functions included here      -->
   <!--------------------------------------------------------------------->
   <script src="scripts/attach-templates.js"></script>
+  <script>
+    $(document).ready(function () {
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {} else {
+          window.location.href = "/login.html";
+        }
+      });
+    });
+  </script>
   <script src="scripts/create-post.js"></script>
 </body>

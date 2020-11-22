@@ -15,9 +15,14 @@ $(document).ready(function () {
                     let card = jQuery(".card:last-of-type");
                     card.find(".view").prop("href", "post.html?" + item.link);
                     card.find(".rating").text(item.rating);
+                    
+                    let typeCapitalized = item.type.charAt(0).toUpperCase() + item.type.slice(1);
+                    card.find(".type").text(typeCapitalized)
+
                     card.find(".title").text(item.title);
                     card.find(".content").text(item.content);
                     card.find(".author").text(item.author);
+
                     let tagList = item.tagList.split(",");
                     tagList.forEach(function (tagText) {
                         let newTag = "<span class=\"badge badge-dark\">" +
