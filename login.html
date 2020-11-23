@@ -29,15 +29,16 @@
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         var firebaseConfig = {
             apiKey: "AIzaSyDsVDQCk4K0bcGfxJYBOf1XjPLXFIanzO0",
-        authDomain: "team27webapp.firebaseapp.com",
+            authDomain: "team27webapp.firebaseapp.com",
             databaseURL: "https://team27webapp.firebaseio.com",
             projectId: "team27webapp",
-        storageBucket: "team27webapp.appspot.com",
-        messagingSenderId: "886704820434",
+            storageBucket: "team27webapp.appspot.com",
+            messagingSenderId: "886704820434",
             appId: "1:886704820434:web:6a69c373197e383b6d5d0b"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
     </script>
 
     <!-- Optional styles and scripts of your own -->
@@ -67,7 +68,22 @@
                     // User successfully signed in.
                     // Return type determines whether we continue the redirect automatically
                     // or whether we leave that to developer to handle.
-                    return true;
+                    var user = authResult.user;
+                    if (authResult.additionalUserInfo.isNewUser) {
+                        db.collection("users").doc(user.uid).set({
+                                name: user.displayName,
+                                email: user.email
+                            }).then(function () {
+                                console.log("New user added to firestore");
+                                window.location.assign("home.html");
+                            })
+                            .catch(function (error) {
+                                console.log("Error adding new user: " + error);
+                            });
+                    } else {
+                        return true;
+                    }
+                    return false;
                 },
                 uiShown: function () {
                     // The widget is rendered.
@@ -102,13 +118,13 @@
     <!----------------------------------------------->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
+    </script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->

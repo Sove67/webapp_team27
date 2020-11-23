@@ -55,6 +55,31 @@
       margin-left: 15px;
       margin-right: 15px;
     }
+
+    .comment{
+      margin-bottom: 15px;
+    }
+
+    #post-header{
+      display:grid;
+      grid-template-columns: 90% auto;
+    }
+
+    .post-title{
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .post-author-div{
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    #post-voting{
+      grid-column: 2;
+      grid-row: 1 / 4;
+    }
+
   </style>
 </head>
 
@@ -68,13 +93,13 @@
 
 
   <!--Post Header-->
-  <nav class="navbar navbar-expand navbar-light bg-light">
+  <nav id="post-header" class="navbar navbar-expand navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <h1><span class="post-type badge badge-secondary">Type</span></h1>
-    <h1 class="post-title">
+    <h2 class="post-title">
       Post Title
     </h1>
     <!--
@@ -82,21 +107,23 @@
             Post Title
         </span>
         -->
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="post-author-div collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <!--Add link to post author profile-->
-          <a class="nav-link h2" href="#">By: Post Author</a>
+          <a class="nav-link h4 post-author" href="#">By: Post Author</a>
         </li>
       </ul>
     </div>
-    <button type="button" class="btn btn-outline-primary">
-      <i class="fa fa-arrow-up"></i>
-    </button>
-    <div class="w-5 p-3">0</div>
-    <button type="button" class="btn btn-outline-primary">
-      <i class="fa fa-arrow-down"></i>
-    </button>
+    <div id="post-voting">
+      <button id="post-upvote" type="submit" class="btn btn-outline-primary">
+        <i class="fa fa-arrow-up"></i>
+      </button>
+      <div id="post-rating" class="w-5 p-3">0</div>
+      <button id="post-downvote" type="button" class="btn btn-outline-primary">
+        <i class="fa fa-arrow-down"></i>
+      </button>
+    </div>
   </nav>
 
   <!--Post Body-->
@@ -139,6 +166,7 @@
     </div>
   </div>
 
+  <!--Div where the comments are added from the database-->
   <div id="comment-container"></div>
 
 
@@ -161,6 +189,7 @@
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
 
   <script>
     // Your web app's Firebase configuration
