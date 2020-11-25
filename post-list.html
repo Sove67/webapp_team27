@@ -18,8 +18,12 @@
     <style>
         .card {
             display: grid;
-            grid-template-columns: 10% 1fr 40%;
+            grid-template-columns: 10% 1fr;
             margin-bottom: 10px;
+        }
+        .card>.body{
+            display: grid;
+            grid-template-columns: 50% 1fr;
         }
 
         .ratingContainer {
@@ -46,8 +50,34 @@
 </head>
 
 <body>
-    <div id="navbarContainer">
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+          aria-controls="navbarDropdown links2">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-brand mr-auto" href="">COVID Solutions</span>
+      
+        <div class="collapse navbar-collapse" id="navbarDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post-list.html">Posts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="create-post.html">Create A Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">My Profile</a>
+            </li>
+          </ul>
+        </div>
+        <form class="form-inline ml-auto">
+          <input class="searchTerm form-control" type="text" placeholder="Search" aria-label="Search">
+          <a class="search btn btn-primary btn-rounded " type="submit">Search</a>
+        </form>
+      </nav>
 
     <div id="cardContainer">
     </div>
@@ -91,8 +121,8 @@
     <!--------------------------------------------------------------------->
     <!--      JS files: Your own JavaScript functions included here      -->
     <!--------------------------------------------------------------------->
-    <script src="scripts/attach-templates.js"></script>
     <script src="scripts/attach-posts.js"></script>
+    <script src="scripts/search.js"></script>
 </body>
 
 </html>
