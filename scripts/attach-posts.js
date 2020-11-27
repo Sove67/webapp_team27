@@ -10,8 +10,8 @@ $(document).ready(function () {
             let searchText = queries[1];
             querySnapshot.forEach(function (post) {
                 // Add data if it matches the search, or add all data if there is no search.
-                console.log(searchText);
-                if (searchText != undefined && (post.data().title.toLowerCase().includes(searchText.toLowerCase()) || post.data().description.toLowerCase().includes(searchText.toLowerCase()))) {
+                console.log(post.data().type.toLowerCase())
+                if (searchText != undefined && (post.data().title.toLowerCase().includes(searchText.toLowerCase()) || post.data().type.toLowerCase().includes(searchText.toLowerCase()) || post.data().description.toLowerCase().includes(searchText.toLowerCase()))) {
                     postList.push(post.data());
                 } else if (searchText == undefined) {
                     postList.push(post.data());
