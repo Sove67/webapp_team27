@@ -1,5 +1,5 @@
+//When accessing parts of the website that require an account, check that the user is logged in.
 $(".accountRequired").click(login);
-$("p").click(login);
 
 function login() {
     firebase.auth().onAuthStateChanged(function (user) {
