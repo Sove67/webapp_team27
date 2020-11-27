@@ -1,5 +1,3 @@
-console.log("hello");
-
 function addListener() {
     document.getElementById("forms").addEventListener("submit", function (e) {
         // disable default form handling
@@ -20,7 +18,8 @@ function addListener() {
                         "title": title,
                         "description": description,
                         "rating": 0,
-                        "authorId": user.uid
+                        "authorId": user.uid,
+                        "author": user.displayName
                     })
                     .then(function (docRef) {
                         console.log("ID: " + docRef.id)
@@ -33,8 +32,6 @@ function addListener() {
                     });
             }
         });
-        
-
     })
 }
 addListener();
