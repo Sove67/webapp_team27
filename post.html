@@ -73,30 +73,29 @@
       margin-right: 15px;
     }
 
-    .comment{
+    .comment {
       margin-bottom: 15px;
     }
 
-    #post-header{
-      display:grid;
+    #post-header {
+      display: grid;
       grid-template-columns: 90% auto;
     }
 
-    .post-title{
+    .post-title {
       grid-column: 1;
       grid-row: 2;
     }
 
-    .post-author-div{
+    .post-author-div {
       grid-column: 1;
       grid-row: 3;
     }
 
-    #post-voting{
+    #post-voting {
       grid-column: 2;
       grid-row: 1 / 4;
     }
-
   </style>
 </head>
 
@@ -104,7 +103,6 @@
   <!-------------------------------------->
   <!-- The following is HTML for layout -->
   <!-------------------------------------->
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
       aria-controls="navbarDropdown links2">
@@ -144,29 +142,29 @@
     <h1><span class="post-type badge badge-secondary">Type</span></h1>
     <h2 class="post-title">
       Post Title
-    </h1>
-    <!--
+      </h1>
+      <!--
         <span class="navbar-text">
             Post Title
         </span>
         -->
-    <div class="post-author-div collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <!--Add link to post author profile-->
-          <a class="nav-link h4 post-author" href="#">By: Post Author</a>
-        </li>
-      </ul>
-    </div>
-    <div id="post-voting">
-      <button id="post-upvote" type="submit" class="btn btn-outline-primary">
-        <i class="fa fa-arrow-up"></i>
-      </button>
-      <div id="post-rating" class="w-5 p-3">0</div>
-      <button id="post-downvote" type="button" class="btn btn-outline-primary">
-        <i class="fa fa-arrow-down"></i>
-      </button>
-    </div>
+      <div class="post-author-div collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <!--Add link to post author profile-->
+            <a class="nav-link h4 post-author" href="#">By: Post Author</a>
+          </li>
+        </ul>
+      </div>
+      <div id="post-voting">
+        <button id="post-upvote" type="submit" class="btn btn-outline-primary">
+          <i class="fa fa-arrow-up"></i>
+        </button>
+        <div id="post-rating" class="w-5 p-3">0</div>
+        <button id="post-downvote" type="button" class="btn btn-outline-primary">
+          <i class="fa fa-arrow-down"></i>
+        </button>
+      </div>
   </nav>
 
   <!--Post Body-->
@@ -182,7 +180,7 @@
         Suspendisse fermentum finibus nunc in ultricies. Quisque eu venenatis massa. Nam ultrices viverra lacinia.
       </p>
     </div>
-    
+
     <!--Comment Header-->
     <div class="card-header comment-header">
       <h5>Comments</h5>
@@ -214,8 +212,9 @@
   <!----------------------------------------------->
   <!--    JS: Boostrap, Firebase, API related    -->
   <!----------------------------------------------->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
