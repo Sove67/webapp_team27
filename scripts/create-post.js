@@ -11,7 +11,6 @@ function addListener() {
                 var description = document.getElementById("validationDefault02").value;
 
                 // write the values into new database document
-
                 db.collection("posts")
                     .add({ //using the add() function, auto-generated doc ID
                         "type": postType,

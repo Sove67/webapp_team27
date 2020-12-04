@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //Get post id from the url, then use it to create the post.
+    //Get post id from the url, then use it to find the post in the database and write the data to the page.
     var queryString = decodeURIComponent(window.location.search);
     var queries = queryString.split("?"); //delimiter
     var postID = queries[1];
@@ -23,21 +23,7 @@ $(document).ready(function () {
             
         });
 
-
-    db.collection("posts").doc(postID).collection("comments")
-        .get()
-        .then(function (snapshot) {
-            snapshot.docs.forEach(doc => {
-                $("body").append()
-            });
-
-        })
-        .catch(function (error) {
-            console.log("Error getting documents: ", error);
-        });
-
-
-    //Add comments to the post
+    //Add comments to the post by reading them from the database.
     db.collection("posts").doc(postID).collection("comments")
         .get()
         .then(function (snapshot) {
@@ -52,7 +38,6 @@ $(document).ready(function () {
                 }).then(function () {
                     let card = jQuery(".card:last-of-type");
                     var commentId = item.id;
-
                     console.log(commentId);
                     card.find(".comment-author").text(item.commentAuthor);
                     card.find("#comment-content").text(item.comment);
@@ -60,9 +45,7 @@ $(document).ready(function () {
                     card.find(".comment-upvote").prop("id", commentId + "upvote");
                     card.find(".comment-downvote").prop("id", commentId + "downvote");
                     
-
-
-                    //Add upvoting to comments
+                    //Make the comment upvote buttons increment the comment rating in the database and on the page.
                     document.getElementById(commentId + "upvote").addEventListener("click", function (e){
                         e.preventDefault();
                         var newCommentRating = item.rating + 1;
@@ -79,7 +62,7 @@ $(document).ready(function () {
                         });
                     });
 
-                    //Add downvoting to comments
+                    //Make the comment downvote buttons decrement the comment rating in the database and on the page.
                     document.getElementById(commentId + "downvote").addEventListener("click", function (e){
                         e.preventDefault();
                         var newCommentRating = item.rating - 1;
@@ -103,7 +86,7 @@ $(document).ready(function () {
         });
 
 
-    //Make the upvote button increment the post rating
+    //Make the post upvote button increment the post rating in the database and on the page.
     document.getElementById("post-upvote").addEventListener("click", function (e) {
         e.preventDefault();
         console.log("hit up button");
@@ -122,7 +105,7 @@ $(document).ready(function () {
             });
     });
 
-    //Make the downvote buttons decrement the post rating
+    //Make the post downvote button decrement the post rating in the database and on the page.
     document.getElementById("post-downvote").addEventListener("click", function (e) {
         e.preventDefault();
         console.log("hit down button");
@@ -141,8 +124,7 @@ $(document).ready(function () {
             });
     });
 
-
-    //Add comments to the database when the submit button is pressed
+    //Add comments to the database when the submit button is pressed.
     document.getElementById("create-comment").addEventListener("submit", function (e) {
         e.preventDefault();
         var comment = document.getElementById("exampleFormControlTextarea1").value;
@@ -166,8 +148,6 @@ $(document).ready(function () {
                 });
             }
         });
-
-        
     });
 });
 

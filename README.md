@@ -36,6 +36,7 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── scripts                  # Folder for scripts
+    /attach-posts-profile.js # Attaches approptiate post cards to a profile page
     /attach-posts.js         # Create html elements for one post in the postList.html page
     /create-post.js          # Create a new post in the database from the user's input
     /loginTrigger.js         # Open the login page if the user is not logged in
